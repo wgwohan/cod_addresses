@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COD Addresses</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #6366f1; /* Soft Indigo */
+            --accent-hover: #4f46e5;
+            --success-color: #10b981; /* Vibrant Emerald */
+            --border-color: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            margin: 0 0 6px 0;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .address-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .address-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+        }
+
+        .address-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.04);
+        }
+
+        .address-info {
+            flex-grow: 1;
+            padding-right: 16px;
+        }
+
+        .address-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .address-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .copy-btn {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .copy-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--accent-color);
+            border-color: #cbd5e1;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-btn.copied {
+            background-color: #ecfdf5;
+            border-color: var(--success-color);
+            color: var(--success-color);
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background-color: #1e293b;
+            color: #fff;
+            padding: 5px 9px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.15s ease;
+            pointer-events: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .copy-btn.copied .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>COD Addresses</h1>
+            <h4>Click the copy icon to quickly grab an address.</h4>
+        </header>
+
+        <div class="address-list">
+
+            <!-- Address Card 1 -->
+            <div class="address-card">
+                <div class="address-info">
+                    <div class="address-label">01. Dil Fashion</div>
+                    <p class="address-text">DIL FASHION, 245, THUWARAGALA, DEHIATTAKANDIYA - 0715410528</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this)">
+                    <span class="tooltip">Copied!</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Address Card 2 -->
+            <div class="address-card">
+                <div class="address-info">
+                    <div class="address-label">02. Maduranga Traders</div>
+                    <p class="address-text">MADURANGA TRADERS, NO.06, COMMERCIAL, MUWAPATIGEWELA, DEHIATTAKANDIYA - 0764393041</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this)">
+                    <span class="tooltip">Copied!</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+			
+			<!-- Address Card 2 -->
+            <div class="address-card">
+                <div class="address-info">
+                    <div class="address-label">03. ENP PHARMACY PRODUCTS</div>
+                    <p class="address-text">ENP PHARMACY BAG PRODUCT, MAWANAWELA -  0761539448</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this)">
+                    <span class="tooltip">Copied!</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+			
+			<!-- Address Card 3 -->
+            <div class="address-card">
+                <div class="address-info">
+                    <div class="address-label">04. INOKA</div>
+                    <p class="address-text">INOKA, 16, TELECOM PLACE, DEHIATTAKANDIYA</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this)">
+                    <span class="tooltip">Copied!</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+			
+			<!-- Address Card 4 -->
+            <div class="address-card">
+                <div class="address-info">
+                    <div class="address-label">05. Y.G.S.ARIYADASA</div>
+                    <p class="address-text">Y.G.S.ARIYADASA, NO.14, MAHAWANAWELA, DEHIATTAKANDIYA</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this)">
+                    <span class="tooltip">Copied!</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+			
+            <!-- ========================================== -->
+            <!-- TO ADD NEW ADDRESSES IN THE FUTURE:        -->
+            <!-- Copy the block below, paste it right here, -->
+            <!-- and change the label and address text.     -->
+            <!-- ========================================== -->
+            
+            <!-- 
+            <div class="address-card">
+                <div class="address-info">
+                    <div class="address-label">03. Shop Name Here</div>
+                    <p class="address-text">FULL ADDRESS GOES HERE</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress(this)">
+                    <span class="tooltip">Copied!</span>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+            -->
+
+        </div>
+    </div>
+
+    <script>
+        function copyAddress(button) {
+            const card = button.closest('.address-card');
+            const textToCopy = card.querySelector('.address-text').innerText;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                }, 1800);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
